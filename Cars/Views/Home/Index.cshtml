@@ -1,0 +1,30 @@
+﻿@model IEnumerable<Cars.Models.Category>
+@{
+    ViewBag.Title = "Home Page";
+}
+
+
+@foreach (var item in Model)
+{
+    <div class="panel panel-info" >
+        <div class="panel panel-heading"><h1>@Html.DisplayFor(modelitem => item.CategoryName)</h1></div>
+        
+        
+        <div class="raw panel-body">
+            <h5>@Html.DisplayFor(modelitem => item.CategoryDescription)</h5>
+            @foreach (var subitem in item.Cars)
+            {
+
+                <div class="col-md-3 thumbnail " style="margin-left:20px; margin-bottom:50px; min-height:380px; ">
+                    <img src="~/Uploads/@subitem.CarImage" />
+                    <h3>@Html.DisplayFor(modelitem => subitem.CarTitle)</h3>
+                    <h5> @Html.Raw(HttpUtility.HtmlDecode(Html.DisplayFor(model => subitem.CarContent).ToString()))</h5>
+                   @Html.ActionLink("Details", "Details", new { id = subitem.Id }, new {@class="btn btn-primary" })
+                </div>
+            }
+        </div>
+
+    </div>
+}
+
+

@@ -1,0 +1,59 @@
+﻿@model Cars.Models.Car
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2>حذف hgsdhvm</h2>
+
+<h3>هل انت متاكد من الحذف</h3>
+<div>
+    <h4>Car</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.category.CategoryName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.category.CategoryName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CarTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CarTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CarContent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CarContent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CarImage)
+        </dt>
+
+        <dd>
+            <img src="~/Uploads/@Html.DisplayFor(model=>model.CarImage)"
+                 class="thumbnail"
+                 style="width:48px; height:48px;" />
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="حذف" class="btn btn-danger" /> |
+            @Html.ActionLink("العودة للوظائف", "Index")
+        </div>
+    }
+</div>

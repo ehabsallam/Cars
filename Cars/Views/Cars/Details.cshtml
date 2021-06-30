@@ -1,0 +1,53 @@
+﻿@model Cars.Models.Car
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Cars</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.category.CategoryName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.category.CategoryName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CarTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CarTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CarContent)
+        </dt>
+
+        <dd>
+            @Html.Raw(HttpUtility.HtmlDecode(Html.DisplayFor(model => model.CarContent).ToString()))
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CarImage)
+        </dt>
+
+        <dd>
+            <img src="~/Uploads/@Html.DisplayFor(model=>model.CarImage)"
+                 class="thumbnail"
+                 style="width:48px; height:48px;"/>
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

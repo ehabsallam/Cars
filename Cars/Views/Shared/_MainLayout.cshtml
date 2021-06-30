@@ -1,0 +1,134 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width,inisial scale =1 " />
+    <title>@ViewBag.Title</title>
+
+    
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/style.css" rel="stylesheet" />
+</head>
+<body>
+    <!----->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <p class="site-title">
+                    <a href="@Url.Action("Index", "Home")">
+                       
+                        <img src="~/Images/download (1) (1).png"
+                             class="thumbnail"
+                             style="width:48px; height:48px;" />
+                    </a>
+                </p>
+            </div>
+            <div id="navbar" class="navbar-collapse collapsed">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="@Url.Action("Index", "Home")">
+                            <i class="glyphicon glyphicon-home"></i>
+                            الرئيسيه
+                        </a>
+                    </li>
+                   
+                    <li>
+                        <a href="@Url.Action("About", "Home")">
+                            <i class="glyphicon glyphicon-info-sign"></i>
+                            حول الموقع
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Contact", "Home")">
+                            <i class="glyphicon glyphicon-envelope"></i>
+                            اتصل بنا
+                        </a>
+                    </li>
+
+                    <li>
+                        @using (Html.BeginForm("Search", "Home", FormMethod.Post))
+                        {
+                            <input type="text" name="SearchName" id="SearchName" placeholder="Search hear" />
+
+                        }
+
+
+                    </li>
+
+                </ul>
+                <!-- partial view-->
+                @Html.Partial("_Login")
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row" style="min-height:550px;">
+
+            @RenderBody()
+        </div>
+    </div>
+    <!--footer-->
+    @*<footer class="navbar navbar-fixed-bottom myfooter" >
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h3>
+                        <i class="glyphicon glyphicon-question-sign"></i>
+                        من نحن
+                    </h3>
+                    <p>
+                        يسعدنا زيارتكم لنا في الموقع ان محور لقائنا هو تقنية ASP.NET Core وكيفية الاستفادة منها  سأستفيد منها شخصيا.
+
+ 
+                    </p>
+                </div>
+                
+
+
+                <div class="col-md-4">
+                    <h3>
+                        <i class="glyphicon glyphicon-globe"></i>
+                        روابط هامة
+                    </h3>
+                    <ul>
+                        <li> <a href="#"> وظائف للقطاع العام</a></li>
+                        <li> <a href="#"> وظائف للقطاع الخاص</a></li>
+                        <li> <a href="#">وظائف خارج البلاد</a></li>
+                        <li> <a href="#"> وظائف متنوعه</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-4">
+                    
+                    <h3>
+                        <i class="glyphicon glyphicon-envelope"></i>
+                        تواصل معنا
+                    </h3>
+                    <ul>
+                        <li> <a href="#"> صفحتنا علي الفيس بوك</a></li>
+                        <li> <a href="#"> تابعنا علي تويتر</a></li>
+                        <li> <a href="#"> شاهدنا علي تويتر</a></li>
+                        <li> <a href="#"> اترك لنا رسالة</a></li>
+                    </ul>
+                </div>
+
+            </div>
+            
+        </div>
+        <div class="subfooter">
+            <span> جميع الحقوق محفوظة لموقع التوظيف </span>
+        </div>
+    </footer>*@
+
+    <script src="~/Scripts/jquery.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+   
+    @RenderSection("scripts",required:false)
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Cars.Models.CarsViewModel>
+
+@foreach ( var gr in Model)
+{
+   <h3>@gr.CarTitle</h3> 
+    <table class="table table-bordered table-hover">
+        <tr>
+            <th>
+                pub Name
+            </th>
+            <th>
+                message
+            </th>
+            <th>
+                Date
+            </th>
+        </tr>
+        @foreach(var item in gr.Items)
+        {
+            <tr>
+                <td>
+                    @item.user.UserName
+                </td>
+                <td>
+                    @item.message
+                </td>
+                <td>
+                    @item.ApplyDate
+                </td>
+                
+            </tr>
+
+        }
+
+    </table>
+
+}
+

@@ -1,0 +1,27 @@
+﻿@model IEnumerable<Cars.Models.Car>
+
+@{
+    ViewBag.Title = "Search";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+
+  
+    
+        <div class="panel panel-default" style="padding:15px;">
+            <h1 class="panel panel-heading">seach result</h1>
+            <div class="raw">
+                @foreach (var subitem in Model)
+                {
+
+                    <div class="col-md-3 thumbnail " style="margin-left:20px; margin-bottom:50px; height:380px; ">
+                        <img src="~/Uploads/@subitem.CarImage" />
+                        <h3>@Html.DisplayFor(modelitem => subitem.CarTitle)</h3>
+                        <h5>@Html.DisplayFor(modelitem => subitem.CarContent)</h5>
+                        @Html.ActionLink("Details", "Details", new { id = subitem.Id }, new { @class = "btn btn-primary" })
+                    </div>
+                }
+            </div>
+
+        </div>
+            
